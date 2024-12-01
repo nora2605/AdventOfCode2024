@@ -1,0 +1,8 @@
+.vs/
+bin/
+obj/
+Properties/
+*.user
+
+# Input dir
+inputs/
