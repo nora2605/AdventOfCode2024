@@ -12,12 +12,12 @@ public class Day1
         list_right = data.Select(x => x[1]).OrderBy(x => x).ToArray();
     }
 
-    public int Day1_1() => list_left
+    public int Part1() => list_left
             .Zip(list_right)
             .Select(x => Math.Abs(x.First - x.Second))
             .Sum();
 
-    public int Day1_2()
+    public int Part2()
     {
         int[] counts = new int[Math.Max(list_right.Max(), list_left.Max())+1];
         foreach (var v in list_right) counts[v]++;

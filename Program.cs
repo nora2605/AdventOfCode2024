@@ -10,11 +10,16 @@ t.Start();
 Day1 d1 = new();
 t.Round("Day 1 - Init");
 
-Console.WriteLine(t.RoundWith("Day 1 - Star 1", d1.Day1_1));
-Console.WriteLine(t.RoundWith("Day 1 - Star 2", d1.Day1_2));
+Console.WriteLine(t.RoundWith("Day 1 - Star 1", d1.Part1));
+Console.WriteLine(t.RoundWith("Day 1 - Star 2", d1.Part2));
 
 // Day 2
 
+Day2 d2 = new();
+t.Round("Day 2 - Init");
+
+Console.WriteLine(t.RoundWith("Day 2 - Star 1", d2.Part1));
+Console.WriteLine(t.RoundWith("Day 2 - Star 2", d2.Part2));
 
 // Timing
 
