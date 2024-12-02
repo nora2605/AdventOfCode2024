@@ -1,4 +1,6 @@
-﻿namespace AdventOfCode2024;
+﻿using System.ComponentModel.Design;
+
+namespace AdventOfCode2024;
 internal class Day2
 {
     int[][] reports;
@@ -13,27 +15,47 @@ internal class Day2
             ).ToArray();
     }
 
-    public int Part1() => reports.Where(Safe(0)).Count();
-
-    public int Part2() => reports.Where(Safe(1)).Count();
-
-    static Func<int[], bool> Safe(int thresh)
+    public int Part1()
     {
-        return (int[] seq) =>
+        return reports.Where(Safe).Count();
+    }
+    static bool Safe(int[] seq)
+    {
+        bool inc = seq[0] < seq[1];
+        for (int i = 1; i < seq.Length; i++)
         {
-            int c = 0;
-            bool inc = seq[0] < seq[1];
-            for (int i = 1; i < seq.Length; i++)
+            int diff = seq[i] - seq[i - 1];
+            if (
+                Math.Abs(diff) > 3 ||
+                diff == 0 ||
+                (diff < 0 && inc) ||
+                (diff > 0 && !inc)
+            ) return false;
+        }
+        return true;
+    }
+
+    static T[][] VariantsRemove1<T>(T[] arr)
+    {
+        T[][] set = new T[arr.Length + 1][];
+        for (int i = 0; i < arr.Length; i++)
+        {
+            T[] els = new T[arr.Length - 1];
+            int offset = 0;
+            for (int j = 0; j < arr.Length; j++)
             {
-                int diff = seq[i] - seq[i - 1];
-                if (
-                    Math.Abs(diff) > 3 ||
-                    diff == 0 ||
-                    (diff < 0 && inc) ||
-                    (diff > 0 && !inc)
-                ) if (++c > thresh) return false;
+                if (j != i)
+                    els[j - offset] = arr[j];
+                else offset++;
             }
-            return true;
-        };
+            set[i] = els;
+        }
+        set[arr.Length] = arr;
+        return set;
+    }
+
+    public int Part2()
+    {
+        return reports.Select(VariantsRemove1).Where(r => r.Any(Safe)).Count();
     }
 }
