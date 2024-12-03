@@ -59,7 +59,7 @@ namespace AdventOfCode2024
         /// <param name="action">Function to Time</param>
         public T RoundWith<T>(string label, Func<T> action)
         {
-            sw.Start();
+            sw.Restart();
             T res = action();
             Snap(label);
             return res;
