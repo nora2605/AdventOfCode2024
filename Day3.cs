@@ -15,14 +15,11 @@ internal partial class Day3
     [GeneratedRegex(@"mul\((\d+),(\d+)\)|do\(\)|don't\(\)")]
     private static partial Regex AnyInstruction();
 
-    public int Part1()
-    {
-        return MulInstruction()
+    public int Part1() => MulInstruction()
             .Matches(instrs)
             .Select(m => m.Groups)
             .Select(e => int.Parse(e[1].Value) * int.Parse(e[2].Value))
             .Sum();
-    }
 
     public int Part2()
     {
@@ -31,19 +28,15 @@ internal partial class Day3
         int aggregate = 0;
         foreach (var match in matches)
         {
-            switch (match.Value)
+            enabled = match.Value switch
             {
-                case "don't()":
-                    enabled = false;
-                    break;
-                case "do()":
-                    enabled = true;
-                    break;
-                default:
-                    if (!enabled) break;
-                    aggregate += int.Parse(match.Groups[1].Value) * int.Parse(match.Groups[2].Value);
-                    break;
-            }
+                "don't()" => false,
+                "do()" => true,
+                _ => enabled
+            };
+            if (!enabled) continue;
+            if (match.Value.StartsWith('m'))
+                aggregate += int.Parse(match.Groups[1].Value) * int.Parse(match.Groups[2].Value);
         }
         return aggregate;
     }
