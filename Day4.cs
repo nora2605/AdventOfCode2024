@@ -40,7 +40,7 @@ namespace AdventOfCode2024
         static int Occurences(string searchString, string input)
         {
             int c = 0;
-            string reversed = new string(searchString.Reverse().ToArray());
+            string reversed = new(searchString.Reverse().ToArray());
             for (int i = 0; i < input.Length - searchString.Length + 1; i++)
             {
                 string subs = input[i..(i+searchString.Length)];
