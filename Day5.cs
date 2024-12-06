@@ -1,7 +1,4 @@
-﻿using System.Net;
-using System.Xml.Serialization;
-
-namespace AdventOfCode2024;
+﻿namespace AdventOfCode2024;
 
 internal class Day5
 {

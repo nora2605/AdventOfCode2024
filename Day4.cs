@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace AdventOfCode2024
+﻿namespace AdventOfCode2024
 {
     internal class Day4
     {
@@ -43,7 +36,7 @@ namespace AdventOfCode2024
             string reversed = new(searchString.Reverse().ToArray());
             for (int i = 0; i < input.Length - searchString.Length + 1; i++)
             {
-                string subs = input[i..(i+searchString.Length)];
+                string subs = input[i..(i + searchString.Length)];
                 if (subs == searchString) c++;
                 else if (subs == reversed) c++;
             }
@@ -54,8 +47,8 @@ namespace AdventOfCode2024
         {
             return
                 lines.Select(l => Occurences("XMAS", l)).Sum() +
-                columns.Select(c => Occurences("XMAS", c)).Sum() + 
-                diag1.Select(d => Occurences("XMAS", d)).Sum() + 
+                columns.Select(c => Occurences("XMAS", c)).Sum() +
+                diag1.Select(d => Occurences("XMAS", d)).Sum() +
                 diag2.Select(d => Occurences("XMAS", d)).Sum();
         }
 
@@ -67,7 +60,7 @@ namespace AdventOfCode2024
             {
                 for (int j = 0; j < columns.Length - 2; j++)
                 {
-                    if (lines[i+1][j+1] == 'A')
+                    if (lines[i + 1][j + 1] == 'A')
                         if ((lines[i][j] == 'M' && lines[i + 2][j + 2] == 'S' ||
                             lines[i][j] == 'S' && lines[i + 2][j + 2] == 'M') &&
                             (lines[i + 2][j] == 'M' && lines[i][j + 2] == 'S' ||

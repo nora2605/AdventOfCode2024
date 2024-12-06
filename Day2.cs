@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.Design;
-
-namespace AdventOfCode2024;
+﻿namespace AdventOfCode2024;
 internal class Day2
 {
     int[][] reports;

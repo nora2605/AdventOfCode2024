@@ -19,7 +19,7 @@ public class Day1
 
     public int Part2()
     {
-        int[] counts = new int[Math.Max(list_right.Max(), list_left.Max())+1];
+        int[] counts = new int[Math.Max(list_right.Max(), list_left.Max()) + 1];
         foreach (var v in list_right) counts[v]++;
         return list_left.Select(l => l * counts[l]).Sum();
     }

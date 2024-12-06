@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Diagnostics;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AdventOfCode2024
 {
@@ -92,9 +85,9 @@ namespace AdventOfCode2024
             var now = t.init.Elapsed;
             int maxWidth = t.entries.Max(x => x.Label.Length);
             return t.entries
-                .Select(e => $"{e.Label}".PadRight(maxWidth+2) + Pretty(e.Time))
-                .Aggregate((a, b) => $"{a}\n{b}") + 
-                "\n" + "Total".PadRight(maxWidth+2) + Pretty(now);
+                .Select(e => $"{e.Label}".PadRight(maxWidth + 2) + Pretty(e.Time))
+                .Aggregate((a, b) => $"{a}\n{b}") +
+                "\n" + "Total".PadRight(maxWidth + 2) + Pretty(now);
         }
     }
 }
