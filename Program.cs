@@ -53,6 +53,14 @@ t.Round("Day 6 - Init");
 Console.WriteLine(t.RoundWith("Day 6 - Star 1", d6.Part1));
 Console.WriteLine(t.RoundWith("Day 6 - Star 2", d6.Part2));
 
+// Day 7
+
+Day7 d7 = new();
+t.Round("Day 7 - Init");
+
+Console.WriteLine(t.RoundWith("Day 7 - Star 1", d7.Part1));
+Console.WriteLine(t.RoundWith("Day 7 - Star 2", d7.Part2));
+
 // Timing
 
 Console.WriteLine("\nTimes:");
