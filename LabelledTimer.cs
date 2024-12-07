@@ -55,6 +55,7 @@ namespace AdventOfCode2024
             sw.Restart();
             T res = action();
             Snap(label);
+            sw.Restart();
             return res;
         }
 
