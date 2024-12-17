@@ -173,29 +173,29 @@ internal class Day15
                 if (p2_map[x, y] == WTile.LBox) agg += y * 100 + x;
         return agg;
     }
+    internal enum Tile : byte
+    {
+        Empty,
+        Wall,
+        Box,
+        Robot
+    }
+
+    internal enum WTile : byte
+    {
+        Empty,
+        Wall,
+        LBox,
+        RBox,
+        Robot
+    }
+
+    internal enum Direction : byte
+    {
+        Up,
+        Down,
+        Left,
+        Right
+    }
 }
 
-internal enum Tile : byte
-{
-    Empty,
-    Wall,
-    Box,
-    Robot
-}
-
-internal enum WTile : byte
-{
-    Empty,
-    Wall,
-    LBox,
-    RBox,
-    Robot
-}
-
-internal enum Direction : byte
-{
-    Up,
-    Down,
-    Left,
-    Right
-}
