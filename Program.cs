@@ -128,10 +128,18 @@ Console.WriteLine(t.RoundWith("Day 15 - Star 2", d15.Part2));
 // Day 16
 
 Day16 d16 = new();
+t.Round("Day 16 - Init");
 
 Console.WriteLine(t.RoundWith("Day 16 - Star 1", d16.Part1));
 Console.WriteLine(t.RoundWith("Day 16 - Star 2", d16.Part2));
 
+// Day 17
+
+Day17 d17 = new();
+t.Round("Day 17 - Init");
+
+Console.WriteLine(t.RoundWith("Day 17 - Star 1", d17.Part1));
+Console.WriteLine(t.RoundWith("Day 17 - Star 2", d17.Part2));
 
 // Timing
 
